@@ -40,7 +40,7 @@ async function findSeat() {
     let canvas = frame.document.getElementById("ez_canvas");
     let seat = canvas.getElementsByTagName("rect");
     console.log(seat);
-    await sleep(150);
+    await sleep(145);
     for (let i = 0; i < seat.length; i++) {
         let fillColor = seat[i].getAttribute("fill");
     
@@ -88,12 +88,12 @@ async function findSeat() {
 
 async function checkCaptchaFinish() {
     if (document.getElementById("certification").style.display != "none") {
-        await sleep(900);
+        await sleep(700);
         checkCaptchaFinish();
         return;
     }
     let frame = theFrame();
-    await sleep(500);
+    await sleep(400);
     frame.document.getElementById("nextTicketSelection").click();
     return;
 }
@@ -101,7 +101,7 @@ async function checkCaptchaFinish() {
 async function reload() {
     let frame = theFrame();
     frame.document.getElementById("btnReloadSchedule").click();
-    await sleep(650);
+    await sleep(550);
 }
 
 async function searchSeat(data) {
@@ -120,7 +120,7 @@ async function searchSeat(data) {
 async function waitFirstLoad() {
     let concertId = getConcertId();
     let data = await get_stored_value(concertId);
-    await sleep(1000);
+    await sleep(900);
     searchSeat(data);
 }
 
